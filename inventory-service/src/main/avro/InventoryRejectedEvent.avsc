@@ -1,0 +1,9 @@
+{
+  "type": "record",
+  "name": "InventoryRejectedEvent",
+  "namespace": "io.mitochondria.inventory.event",
+  "fields": [
+    { "name": "orderId", "type": "string" },
+    { "name": "email", "type": "string" }
+  ]
+}

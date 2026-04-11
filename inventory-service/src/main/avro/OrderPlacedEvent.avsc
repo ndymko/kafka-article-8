@@ -1,0 +1,11 @@
+{
+  "type": "record",
+  "name": "OrderPlacedEvent",
+  "namespace": "io.mitochondria.order.event",
+  "fields": [
+    { "name": "orderId", "type": "string" },
+    { "name": "email", "type": "string" },
+    { "name": "productName", "type": "string" },
+    { "name": "quantity", "type": "int" }
+  ]
+}
