@@ -13,10 +13,10 @@ import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
 public class OrderPlacedEvent extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = 4727281718729776286L;
+  private static final long serialVersionUID = 1563951502661129492L;
 
 
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"OrderPlacedEvent\",\"namespace\":\"io.mitochondria.order.event\",\"fields\":[{\"name\":\"orderId\",\"type\":\"string\"},{\"name\":\"email\",\"type\":\"string\"},{\"name\":\"productName\",\"type\":\"string\"},{\"name\":\"quantity\",\"type\":\"int\"}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"OrderPlacedEvent\",\"namespace\":\"io.mitochondria.order.event\",\"fields\":[{\"name\":\"orderId\",\"type\":\"string\"},{\"name\":\"email\",\"type\":\"string\"},{\"name\":\"productName\",\"type\":\"string\"},{\"name\":\"quantity\",\"type\":\"int\"},{\"name\":\"comment\",\"type\":[\"string\",\"null\"],\"default\":null}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static final SpecificData MODEL$ = new SpecificData();
@@ -76,6 +76,7 @@ public class OrderPlacedEvent extends org.apache.avro.specific.SpecificRecordBas
   private java.lang.CharSequence email;
   private java.lang.CharSequence productName;
   private int quantity;
+  private java.lang.CharSequence comment;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -90,12 +91,14 @@ public class OrderPlacedEvent extends org.apache.avro.specific.SpecificRecordBas
    * @param email The new value for email
    * @param productName The new value for productName
    * @param quantity The new value for quantity
+   * @param comment The new value for comment
    */
-  public OrderPlacedEvent(java.lang.CharSequence orderId, java.lang.CharSequence email, java.lang.CharSequence productName, java.lang.Integer quantity) {
+  public OrderPlacedEvent(java.lang.CharSequence orderId, java.lang.CharSequence email, java.lang.CharSequence productName, java.lang.Integer quantity, java.lang.CharSequence comment) {
     this.orderId = orderId;
     this.email = email;
     this.productName = productName;
     this.quantity = quantity;
+    this.comment = comment;
   }
 
   @Override
@@ -112,6 +115,7 @@ public class OrderPlacedEvent extends org.apache.avro.specific.SpecificRecordBas
     case 1: return email;
     case 2: return productName;
     case 3: return quantity;
+    case 4: return comment;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -125,6 +129,7 @@ public class OrderPlacedEvent extends org.apache.avro.specific.SpecificRecordBas
     case 1: email = (java.lang.CharSequence)value$; break;
     case 2: productName = (java.lang.CharSequence)value$; break;
     case 3: quantity = (java.lang.Integer)value$; break;
+    case 4: comment = (java.lang.CharSequence)value$; break;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -198,6 +203,23 @@ public class OrderPlacedEvent extends org.apache.avro.specific.SpecificRecordBas
   }
 
   /**
+   * Gets the value of the 'comment' field.
+   * @return The value of the 'comment' field.
+   */
+  public java.lang.CharSequence getComment() {
+    return comment;
+  }
+
+
+  /**
+   * Sets the value of the 'comment' field.
+   * @param value the value to set.
+   */
+  public void setComment(java.lang.CharSequence value) {
+    this.comment = value;
+  }
+
+  /**
    * Creates a new OrderPlacedEvent RecordBuilder.
    * @return A new OrderPlacedEvent RecordBuilder
    */
@@ -242,6 +264,7 @@ public class OrderPlacedEvent extends org.apache.avro.specific.SpecificRecordBas
     private java.lang.CharSequence email;
     private java.lang.CharSequence productName;
     private int quantity;
+    private java.lang.CharSequence comment;
 
     /** Creates a new Builder */
     private Builder() {
@@ -270,6 +293,10 @@ public class OrderPlacedEvent extends org.apache.avro.specific.SpecificRecordBas
         this.quantity = data().deepCopy(fields()[3].schema(), other.quantity);
         fieldSetFlags()[3] = other.fieldSetFlags()[3];
       }
+      if (isValidValue(fields()[4], other.comment)) {
+        this.comment = data().deepCopy(fields()[4].schema(), other.comment);
+        fieldSetFlags()[4] = other.fieldSetFlags()[4];
+      }
     }
 
     /**
@@ -293,6 +320,10 @@ public class OrderPlacedEvent extends org.apache.avro.specific.SpecificRecordBas
       if (isValidValue(fields()[3], other.quantity)) {
         this.quantity = data().deepCopy(fields()[3].schema(), other.quantity);
         fieldSetFlags()[3] = true;
+      }
+      if (isValidValue(fields()[4], other.comment)) {
+        this.comment = data().deepCopy(fields()[4].schema(), other.comment);
+        fieldSetFlags()[4] = true;
       }
     }
 
@@ -455,6 +486,46 @@ public class OrderPlacedEvent extends org.apache.avro.specific.SpecificRecordBas
       return this;
     }
 
+    /**
+      * Gets the value of the 'comment' field.
+      * @return The value.
+      */
+    public java.lang.CharSequence getComment() {
+      return comment;
+    }
+
+
+    /**
+      * Sets the value of the 'comment' field.
+      * @param value The value of 'comment'.
+      * @return This builder.
+      */
+    public io.mitochondria.order.event.OrderPlacedEvent.Builder setComment(java.lang.CharSequence value) {
+      validate(fields()[4], value);
+      this.comment = value;
+      fieldSetFlags()[4] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'comment' field has been set.
+      * @return True if the 'comment' field has been set, false otherwise.
+      */
+    public boolean hasComment() {
+      return fieldSetFlags()[4];
+    }
+
+
+    /**
+      * Clears the value of the 'comment' field.
+      * @return This builder.
+      */
+    public io.mitochondria.order.event.OrderPlacedEvent.Builder clearComment() {
+      comment = null;
+      fieldSetFlags()[4] = false;
+      return this;
+    }
+
     @Override
     @SuppressWarnings("unchecked")
     public OrderPlacedEvent build() {
@@ -464,6 +535,7 @@ public class OrderPlacedEvent extends org.apache.avro.specific.SpecificRecordBas
         record.email = fieldSetFlags()[1] ? this.email : (java.lang.CharSequence) defaultValue(fields()[1]);
         record.productName = fieldSetFlags()[2] ? this.productName : (java.lang.CharSequence) defaultValue(fields()[2]);
         record.quantity = fieldSetFlags()[3] ? this.quantity : (java.lang.Integer) defaultValue(fields()[3]);
+        record.comment = fieldSetFlags()[4] ? this.comment : (java.lang.CharSequence) defaultValue(fields()[4]);
         return record;
       } catch (org.apache.avro.AvroMissingFieldException e) {
         throw e;
@@ -504,6 +576,14 @@ public class OrderPlacedEvent extends org.apache.avro.specific.SpecificRecordBas
 
     out.writeInt(this.quantity);
 
+    if (this.comment == null) {
+      out.writeIndex(1);
+      out.writeNull();
+    } else {
+      out.writeIndex(0);
+      out.writeString(this.comment);
+    }
+
   }
 
   @Override public void customDecode(org.apache.avro.io.ResolvingDecoder in)
@@ -519,8 +599,15 @@ public class OrderPlacedEvent extends org.apache.avro.specific.SpecificRecordBas
 
       this.quantity = in.readInt();
 
+      if (in.readIndex() != 0) {
+        in.readNull();
+        this.comment = null;
+      } else {
+        this.comment = in.readString(this.comment instanceof Utf8 ? (Utf8)this.comment : null);
+      }
+
     } else {
-      for (int i = 0; i < 4; i++) {
+      for (int i = 0; i < 5; i++) {
         switch (fieldOrder[i].pos()) {
         case 0:
           this.orderId = in.readString(this.orderId instanceof Utf8 ? (Utf8)this.orderId : null);
@@ -538,6 +625,15 @@ public class OrderPlacedEvent extends org.apache.avro.specific.SpecificRecordBas
           this.quantity = in.readInt();
           break;
 
+        case 4:
+          if (in.readIndex() != 0) {
+            in.readNull();
+            this.comment = null;
+          } else {
+            this.comment = in.readString(this.comment instanceof Utf8 ? (Utf8)this.comment : null);
+          }
+          break;
+
         default:
           throw new java.io.IOException("Corrupt ResolvingDecoder.");
         }
@@ -552,6 +648,7 @@ public class OrderPlacedEvent extends org.apache.avro.specific.SpecificRecordBas
     result = 31 * result + (email == null ? 0 : email.hashCode());
     result = 31 * result + (productName == null ? 0 : productName.hashCode());
     result = 31 * result + Integer.hashCode(quantity);
+    result = 31 * result + (comment == null ? 0 : comment.hashCode());
     return result;
   }
 
@@ -574,6 +671,9 @@ public class OrderPlacedEvent extends org.apache.avro.specific.SpecificRecordBas
       return false;
     }
     if (this.quantity != other.quantity) {
+      return false;
+    }
+    if (Utf8.compareSequences(this.comment, other.comment) != 0) {
       return false;
     }
     return true;

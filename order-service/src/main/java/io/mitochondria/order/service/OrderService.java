@@ -17,12 +17,13 @@ public class OrderService {
 
     public String placeOrder(OrderRequest orderRequest) {
         String orderId = UUID.randomUUID().toString();
-        OrderPlacedEvent orderPlacedEvent = new OrderPlacedEvent(
-            orderId,
-            orderRequest.email(),
-            orderRequest.productName(),
-            orderRequest.quantity()
-        );
+        OrderPlacedEvent orderPlacedEvent = OrderPlacedEvent.newBuilder()
+            .setOrderId(orderId)
+            .setEmail(orderRequest.email())
+            .setProductName(orderRequest.productName())
+            .setQuantity(orderRequest.quantity())
+            .setComment(orderRequest.comment())
+            .build();
 
         kafkaTemplate.send("order-placed", orderPlacedEvent.getOrderId().toString(), orderPlacedEvent);
 

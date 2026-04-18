@@ -6,6 +6,7 @@
     { "name": "orderId", "type": "string" },
     { "name": "email", "type": "string" },
     { "name": "productName", "type": "string" },
-    { "name": "quantity", "type": "int" }
+    { "name": "quantity", "type": "int" },
+    { "name": "comment", "type": ["string", "null"], "default": null }
   ]
 }
