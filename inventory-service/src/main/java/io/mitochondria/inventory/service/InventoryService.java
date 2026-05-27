@@ -52,7 +52,7 @@ public class InventoryService {
         String orderId = orderPlacedEvent.getOrderId().toString();
         String email = orderPlacedEvent.getEmail().toString();
         String productName = orderPlacedEvent.getProductName().toString();
-        int quantity = orderPlacedEvent.getQuantity();
+        int quantity = Integer.parseInt(orderPlacedEvent.getQuantity().toString());
 
         try {
             processedOrderIdRepository.save(new ProcessedOrderId(
