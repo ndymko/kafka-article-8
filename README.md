@@ -14,8 +14,8 @@
 
 1. Клонировать репозиторий
 ```bash
-git clone https://github.com/Mitohondriyaa/kafka-article-6
-cd kafka-article-6
+git clone https://github.com/Mitohondriyaa/kafka-article-8
+cd kafka-article-8
 ```
 2. Поднять контейнеры
 ```bash
